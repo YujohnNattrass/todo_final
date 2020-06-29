@@ -4,6 +4,10 @@ require "tilt/erubis"
 
 require_relative "database_persistence"
 
+after do
+  @storage.disconnect
+end
+
 configure do
   enable :sessions
   set :session_secret, 'secret'
